@@ -3,6 +3,8 @@
 #include <vector>
 #include <cstdint>
 #include <algorithm>
+#include <string>
+#include <iostream>
 
 namespace sjtu {
 
@@ -109,7 +111,7 @@ struct dynamic_bitset {
 
     dynamic_bitset &operator<<=(std::size_t m) {
         if (m == 0) return *this;
-        if (n == 0) { resize_zero(0); return *this; }
+        if (n == 0) { resize_zero(m); return *this; }
         std::size_t new_n = n + m;
         std::size_t add_blocks = m / B;
         std::size_t shift = m % B;
